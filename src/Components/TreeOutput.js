@@ -1,9 +1,6 @@
 import * as React from "react";
 
 export const TreeOutput = (props) => {
-  {
-    console.log("props", props);
-  }
   if (props.treeNode === "error") {
     return (
       <h3 className="warning-message">

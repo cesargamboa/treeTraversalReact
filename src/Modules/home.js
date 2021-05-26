@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import { arrayToString, stringToJson } from "../helpers/dataParser";
+import { stringToJson } from "../helpers/dataParser";
 import { TreeOutput } from "../Components/TreeOutput";
 
 const Home = () => {
-  const test1 = [1, [2], [3, [3, ["a"], ["b"]], null]];
-  const test2 = [1, [2, [1], [2]], [1, [1], null]];
+  //   const test1 = [1, [2], [3, [3, ["a"], ["b"]], null]];
+  //   const test2 = [1, [2, [1], [2]], [1, [1], null]];
   const [json, setJson] = useState("{}");
   const [previewJson, setPreviewJson] = useState("");
   const [generateOnChange, setGenerateOnChange] = useState(false);
-  const text = arrayToString(test2);
-  const test = stringToJson(text);
-
+  //   const text = arrayToString(test2);
+  //   const test = stringToJson(text);
   const setTreeData = (event) => {
     generateOnChange && setJson(event.target.value);
     setPreviewJson(event.target.value);
