@@ -6,6 +6,8 @@ Documentation for this project/description will be added to the end of this file
 ## DEMO URL
 
 For easy testing, the project is running on Vercel: https://tree-traversal-react.vercel.app/
+![image](https://user-images.githubusercontent.com/35382861/119609951-ac288900-bdb5-11eb-9df4-9fe012ea2764.png)
+
 
 ## Dependencies
 
