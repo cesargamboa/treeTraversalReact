@@ -5,6 +5,29 @@
   align-items: center;
   justify-content: center;
 }
+.warning-message {
+  background-color: #e3a000;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 12px 25px;
+  border-radius: 40px;
+}
+.btn {
+  outline: 0;
+  background-color: #3369e8;
+  width: 131px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin: 20px;
+  height: 41px;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+}
 textarea {
   height: 400px;
   width: 400px;

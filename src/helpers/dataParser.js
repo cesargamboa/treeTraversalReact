@@ -15,5 +15,11 @@ export const arrayToString = (list) => {
   return objeto;
 };
 export const stringToJson = (string) => {
-  return dJSON.parse(string);
+  let parsedData = "{}";
+  try {
+    parsedData = dJSON.parse(string);
+  } catch (e) {
+    parsedData = "error";
+  }
+  return parsedData;
 };
