@@ -13,6 +13,9 @@
   padding: 12px 25px;
   border-radius: 40px;
 }
+li.test > div {
+  border: solid 4px green !important;
+}
 .btn {
   outline: 0;
   background-color: #3369e8;

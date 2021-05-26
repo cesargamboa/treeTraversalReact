@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { stringToJson } from "../helpers/dataParser";
 import { TreeOutput } from "../Components/TreeOutput";
 
@@ -14,6 +14,33 @@ const Home = () => {
     generateOnChange && setJson(event.target.value);
     setPreviewJson(event.target.value);
   };
+  //   const par = JSON.parse(json);
+  //   const getEntries = (jsn) => {
+  //     Object.entries(jsn).map((entry) => {
+  //       console.log("entry", entry);
+  //       if (entry.length >= 2) {
+  //         getEntries(entry[1]);
+  //       }
+  //     });
+  //   };
+  //   getEntries(par);
+  useEffect(() => {
+    let smallest = "";
+    const maxChildNumber = parseInt(localStorage.getItem("globalCount"));
+    const element = document.getElementsByClassName(
+      `${localStorage.getItem("globalCount")}`
+    );
+    console.log(element.length);
+    if (element.length > 1) {
+      console.log(
+        "element",
+        element[0].parentElement.parentElement.parentElement.parentElement.parentElement.classList.add(
+          "test"
+        )
+      );
+    }
+  }, [localStorage.getItem("globalCount")]);
+  localStorage.setItem("globalCount", 0);
   return (
     <>
       <h1>Tree Traversal</h1>
@@ -40,7 +67,7 @@ const Home = () => {
         <ul>
           <li>
             {console.log("jason", json)}
-            <TreeOutput treeNode={stringToJson(json)} />
+            <TreeOutput count={0} treeNode={stringToJson(json)} />
           </li>
         </ul>
       </div>
