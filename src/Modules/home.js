@@ -42,7 +42,7 @@ const Home = () => {
   return (
     <>
       <h1>Tree Traversal</h1>
-      <h2>Upload a JSON file or Type in the text area</h2>
+      <h2>Upload a JSON file or type in the text area</h2>
       <UploadFiles getFiles={(data) => setTreeData(data)} />
       <div>
         <textarea
@@ -51,7 +51,7 @@ const Home = () => {
         ></textarea>
         <form>
           <label htmlFor="generate-on-change">
-            Generate Tree on text change
+            Generate tree on text change
           </label>
           <input
             onChange={() => setGenerateOnChange(!generateOnChange)}
