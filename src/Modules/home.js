@@ -1,49 +1,49 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { stringToJson } from "../helpers/dataParser";
 import { TreeOutput } from "../Components/TreeOutput";
+import AppContext from "../context/app-context";
+import UploadFiles from "../Components/uploadFile";
 
 const Home = () => {
-  //   const test1 = [1, [2], [3, [3, ["a"], ["b"]], null]];
-  //   const test2 = [1, [2, [1], [2]], [1, [1], null]];
   const [json, setJson] = useState("{}");
   const [previewJson, setPreviewJson] = useState("");
+  const [last, setLast] = useState(false);
   const [generateOnChange, setGenerateOnChange] = useState(false);
-  //   const text = arrayToString(test2);
-  //   const test = stringToJson(text);
+  const { count, setCount } = useContext(AppContext);
   const setTreeData = (event) => {
-    generateOnChange && setJson(event.target.value);
-    setPreviewJson(event.target.value);
+    if (event.target) {
+      generateOnChange && setJson(event.target.value);
+      setPreviewJson(event.target.value);
+    } else {
+      setPreviewJson(event);
+    }
   };
-  //   const par = JSON.parse(json);
-  //   const getEntries = (jsn) => {
-  //     Object.entries(jsn).map((entry) => {
-  //       console.log("entry", entry);
-  //       if (entry.length >= 2) {
-  //         getEntries(entry[1]);
-  //       }
-  //     });
-  //   };
-  //   getEntries(par);
+  const setHeight = (val) => {
+    if (val > count) {
+      setCount(val);
+    }
+    if (val < count) {
+      setLast(true);
+    }
+  };
   useEffect(() => {
-    let smallest = "";
-    const maxChildNumber = parseInt(localStorage.getItem("globalCount"));
-    const element = document.getElementsByClassName(
-      `${localStorage.getItem("globalCount")}`
-    );
-    console.log(element.length);
-    if (element.length > 1) {
-      console.log(
-        "element",
-        element[0].parentElement.parentElement.parentElement.parentElement.parentElement.classList.add(
-          "test"
-        )
+    const element = document.getElementsByClassName(`${count}`);
+    if (element.length > 2) {
+      element[0].parentElement.parentElement.parentElement.parentElement.parentElement.classList.add(
+        "green-border"
       );
     }
-  }, [localStorage.getItem("globalCount")]);
-  localStorage.setItem("globalCount", 0);
+    if (element.length === 2) {
+      element[0].parentElement.parentElement.parentElement.classList.add(
+        "green-border"
+      );
+    }
+  }, [count, last]);
   return (
     <>
       <h1>Tree Traversal</h1>
+      <h2>Upload a JSON file or Type in the text area</h2>
+      <UploadFiles getFiles={(data) => setTreeData(data)} />
       <div>
         <textarea
           onChange={(e) => setTreeData(e)}
@@ -66,8 +66,11 @@ const Home = () => {
       <div className="tree">
         <ul>
           <li>
-            {console.log("jason", json)}
-            <TreeOutput count={0} treeNode={stringToJson(json)} />
+            <TreeOutput
+              start={0}
+              setHeight={setHeight}
+              treeNode={stringToJson(json)}
+            />
           </li>
         </ul>
       </div>

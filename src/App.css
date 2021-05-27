@@ -13,8 +13,12 @@
   padding: 12px 25px;
   border-radius: 40px;
 }
-li.test > div {
+li.green-border > div {
   border: solid 4px green !important;
+}
+input {
+  margin-bottom: 10px;
+  color: #3369e8;
 }
 .btn {
   outline: 0;

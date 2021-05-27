@@ -1,9 +1,12 @@
 import Home from "./Modules/home";
+import AppState from "./context/AppState";
 import "./App.css";
 function App() {
   return (
     <div className="App">
-      <Home />
+      <AppState>
+        <Home />
+      </AppState>
     </div>
   );
 }

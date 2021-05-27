@@ -11,6 +11,8 @@ export const arrayToString = (list) => {
       objeto += `"right":` + arrayToString(list[2]);
     }
     objeto += "}";
+  } else {
+    objeto = null + ",";
   }
   return objeto;
 };
