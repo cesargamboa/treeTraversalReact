@@ -13,6 +13,7 @@ For easy testing, the project is running on Vercel: https://tree-traversal-react
 ## Dependencies
 
 Dirty Json (Added for easier parsing of text to json)
+`dirty-json`
 
 ## Commands
 
@@ -66,7 +67,7 @@ As mentioned, we can enable onchange tree generation, if there is a problem with
 
 ![image](https://user-images.githubusercontent.com/35382861/119754867-4b08c000-be5e-11eb-8766-46650d74fc69.png)
 
-For this project was not actually required to use a state managment library (like mobx, redux, context Api), but to show the use of one, i added the Context Api, you can see the state in the src/context folder
+For this project was not actually required to use a state managment library (like mobx, redux, context Api, as the nesting of components is not high and the application is not big), however to show the use of one, i added the Context Api, you can see the state in the src/context folder
 
 Problem 1. Code can be found in the helpers folder
 Problem 2. Is overral the whole application, integrating problem 1 and 2.
